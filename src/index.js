@@ -70,15 +70,6 @@ function gulpFontIcon(options) {
         });
       }
     ))
-  // Generating WOFF2 font
-    .pipe(cond(
-      -1 !== options.formats.indexOf('woff2'),
-      function() {
-        return ttf2woff2({ clone: true }).on('error', function(err) {
-          outStream.emit('error', err);
-        });
-      }
-    ))
   // Filter TTF font if necessary
     .pipe(cond(
       -1 === options.formats.indexOf('ttf'),
